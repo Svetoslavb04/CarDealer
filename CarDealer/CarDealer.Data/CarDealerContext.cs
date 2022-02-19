@@ -22,7 +22,7 @@ namespace CarDealer.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(DatabaseConfiguration.DeffaultConnectionString);
+                optionsBuilder.UseSqlServer(DatabaseConfiguration.DefaultConnectionString);
             }
 
             base.OnConfiguring(optionsBuilder);

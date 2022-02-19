@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarDealer.Data
 {
-    public class CarDealerRepository : Repository
+    public class CarDealerRepository : Repository, ICarDealerRepository
     {
         public CarDealerRepository(CarDealerContext context)
         {   

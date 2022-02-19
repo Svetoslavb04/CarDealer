@@ -13,18 +13,15 @@ namespace CarDealer.Console
         {
             var services = new ServiceCollection()
                 .AddDbContext<CarDealerContext>(options =>
-                options.UseSqlServer(DatabaseConfiguration.DeffaultConnectionString))
-                .AddScoped<IRepository, CarDealerRepository>()
+                options.UseSqlServer(DatabaseConfiguration.DefaultConnectionString))
+                .AddScoped<ICarDealerRepository, CarDealerRepository>()
                 .BuildServiceProvider();
 
-            var database = services.GetService<IRepository>();
+            //data is CarDealerRepository which inherits Repository. Repository is an abstraction of the data source.
+            //Use data variable as your database. Check the Repository class to see how to access and modify the data
+            var data = services.GetService<ICarDealerRepository>();
 
-            await database.DeleteAsync<Car>(1);
-            database.SaveChanges();
-            foreach (var car in database.All<Car>())
-            {
-                System.Console.WriteLine(car.Make);
-            }
+            System.Console.WriteLine(data.All<Car>());
         }
     }
 }
