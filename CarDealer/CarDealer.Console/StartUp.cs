@@ -9,7 +9,7 @@ namespace CarDealer.Console
 {
     public class StartUp
     {
-        public static void Main()
+        public static async Task Main()
         {
             var services = new ServiceCollection()
                 .AddDbContext<CarDealerContext>(options =>
@@ -19,15 +19,7 @@ namespace CarDealer.Console
 
             var database = services.GetService<IRepository>();
 
-            database.AddAsync<Car>(new Car
-            {
-                Make = "BMW",
-                Model = "X4",
-                Color = "white",
-                EngineCapacity= 5.2,
-                Horsepower = 100,
-                Year = 3
-            });
+            await database.DeleteAsync<Car>(1);
             database.SaveChanges();
             foreach (var car in database.All<Car>())
             {
