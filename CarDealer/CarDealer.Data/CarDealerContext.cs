@@ -1,6 +1,4 @@
-﻿using CarDealer.Common;
-using CarDealer.Data.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using CarDealer.Data.Models;
 
 namespace CarDealer.Data
 {

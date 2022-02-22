@@ -1,10 +1,10 @@
-﻿namespace CarDealer.Data.Models
-{
-    public class Car
-    {
-        [Key]
-        public int Id { get; set; }
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
+namespace CarDealer.ServiceModels.InputModels
+{
+    public class CarInputModel
+    {
         [Required]
         [MinLength(GlobalConstants.CarMakeModelMinLength)]
         [MaxLength(GlobalConstants.CarMakeModelMaxLength)]
@@ -17,7 +17,7 @@
         [Required]
         [Range(GlobalConstants.CarMinYear, GlobalConstants.CarMaxYear)]
         public int Year { get; set; }
-        
+
         [RegularExpression(GlobalConstants.CarColorRegex)]
         public string? Color { get; set; }
 

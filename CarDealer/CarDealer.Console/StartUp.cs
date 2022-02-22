@@ -1,11 +1,4 @@
-﻿using CarDealer.Common;
-using CarDealer.Data;
-using CarDealer.Data.Common;
-using CarDealer.Data.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace CarDealer.Console
+﻿namespace CarDealer.Console
 {
     public class StartUp
     {
