@@ -1,5 +1,12 @@
 ﻿namespace CarDealer.Console
 {
+    using CarDealer.Common;
+    using CarDealer.Data;
+    using CarDealer.Data.Models;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.DependencyInjection;
+    using System;
+
     public class StartUp
     {
         public static async Task Main()
@@ -14,7 +21,7 @@
             //Use data variable as your database. Check the Repository class to see how to access and modify the data
             var data = services.GetService<ICarDealerRepository>();
 
-            System.Console.WriteLine(data.All<Car>());
+            Console.WriteLine(data.All<Car>());
         }
     }
 }

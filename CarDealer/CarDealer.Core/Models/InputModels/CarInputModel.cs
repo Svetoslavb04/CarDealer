@@ -1,13 +1,11 @@
 ﻿using CarDealer.Common;
+using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace CarDealer.Data.Models
+namespace CarDealer.Core.Models.InputModels
 {
-    public class Car
+    public class CarInputModel
     {
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         [MinLength(GlobalConstants.CarMakeModelMinLength)]
         [MaxLength(GlobalConstants.CarMakeModelMaxLength)]
@@ -21,7 +19,7 @@ namespace CarDealer.Data.Models
         [Required]
         [Range(GlobalConstants.CarMinYear, GlobalConstants.CarMaxYear)]
         public int Year { get; set; }
-        
+
         [RegularExpression(GlobalConstants.CarColorRegex)]
         public string? Color { get; set; }
 

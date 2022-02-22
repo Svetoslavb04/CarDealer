@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CarDealer.Data\CarDealer.Data.csproj" />
+    <ProjectReference Include="..\CarDealer.Core\CarDealer.Core.csproj" />
   </ItemGroup>
 
 </Project>
