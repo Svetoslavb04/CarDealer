@@ -9,7 +9,7 @@ namespace CarDealer.Core.Mapping
     {
         public CarProfile()
         {
-            this.CreateMap<Car, CarInputModel>();
+            this.CreateMap<CarInputModel, Car>();
 
             this.CreateMap<Car, CarPreviewModel>();
 

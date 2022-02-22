@@ -16,7 +16,7 @@
 
         public const double CarEngineCapacityMaxValue = 50;
 
-        public const double CarMinHorsepower = 0.1;
+        public const double CarMinHorsepower = 1;
 
         public const double CarMaxHorsepower = 10000;
 
