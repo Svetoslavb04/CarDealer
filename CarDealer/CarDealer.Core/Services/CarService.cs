@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using CarDealer.Core.Models.InputModels;
 using CarDealer.Core.Models.OutputModels;
 using CarDealer.Core.Services.Contracts;
 using CarDealer.Data;
 using CarDealer.Data.Models;
+using System.Collections;
+using System.Linq.Expressions;
 
 namespace CarDealer.Core.Services
 {
@@ -16,6 +19,10 @@ namespace CarDealer.Core.Services
         {
             data = _data;
             mapper = _mapper;
+        }
+
+        public CarService()
+        {
         }
 
         //An example. You receive a carModel of type CarInputModel.
@@ -38,29 +45,80 @@ namespace CarDealer.Core.Services
         }
         public async Task RemoveCarById(int id)
         {
-            await data.DeleteAsync<Car>(id);
-            await data.SaveChangesAsync();
+            try
+            {
+                await data.DeleteAsync<Car>(id);
+                await data.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+
+                throw new ArgumentException("Invalid Id");
+            }
+            
         }
         public async Task<CarDetailsModel> GetCarDetailsById(int id)
         {
-            Car car = await data.GetByIdAsync<Car>(id);
+            try
+            {
+                Car car = await data.GetByIdAsync<Car>(id);
+                var mapped = mapper.Map<Car, CarDetailsModel>(car);
+                return mapped;
+            }
+            catch (Exception)
+            {
 
-            var mapped = mapper.Map<Car, CarDetailsModel>(car);
-
-            return mapped;
+                throw new ArgumentException("Invalid Id");
+            }
+;
         }
 
         public async Task<CarPreviewModel> GetCarPreviewById(int id)
         {
-            Car car = await data.GetByIdAsync<Car>(id);
-
-            var mapped = mapper.Map<Car, CarPreviewModel>(car);
-
-            return mapped;
+            try
+            {
+                Car car = await data.GetByIdAsync<Car>(id);
+                var mapped = mapper.Map<Car, CarPreviewModel>(car);
+                return mapped;
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("Invalid Id");
+            }
+            
         }
 
+        public async Task<ICollection> GetAllCarsPreview()
+        {
+            var cars = data.All<Car>().ToArray();
+            List<CarPreviewModel> result = new List<CarPreviewModel>();
+            foreach (var car in cars)
+            {
+                var mapped = mapper.Map<Car, CarPreviewModel>(car);
+                result.Add(mapped);
+            }
+            return result;
+        }
+        public async Task<ICollection> GetAllCarsPreviewWhere<Car>(Expression<Func<Car, bool>> search)
+        {
+            /* var cars =await data.All<Car>(search).ToArray();
+             List<CarPreviewModel> result = new List<CarPreviewModel>();
+             foreach (var car in cars)
+             {
+                 var mapped = mapper.Map<Car, CarPreviewModel>(car);
+                 result.Add(mapped);
+             }
+
+             return result;*/
+            throw new NotImplementedException();
 
 
-        //To do methods
+        }
+        public Task EditById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+       
     }
 }

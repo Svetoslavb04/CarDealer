@@ -185,5 +185,6 @@ namespace CarDealer.Data.Common
             var entities = All<T>(deleteWhereClause);
             DeleteRange(entities);
         }
+
     }
 }
