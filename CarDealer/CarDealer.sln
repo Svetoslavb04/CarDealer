@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarDealer.Console", "CarDea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarDealer.Core", "CarDealer.Core\CarDealer.Core.csproj", "{D780958A-C0AB-43E1-982B-74D44BE8C312}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarDealer.Tests", "CarDealer.Tests\CarDealer.Tests.csproj", "{B1039394-E201-4804-B02D-D1F0E517CD24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarDealer.Tests", "CarDealer.Tests\CarDealer.Tests.csproj", "{B1039394-E201-4804-B02D-D1F0E517CD24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarDealer.Web", "CarDealer.Web\CarDealer.Web.csproj", "{D20CF3F1-DCA4-4371-A083-3030073E9159}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B1039394-E201-4804-B02D-D1F0E517CD24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1039394-E201-4804-B02D-D1F0E517CD24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1039394-E201-4804-B02D-D1F0E517CD24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D20CF3F1-DCA4-4371-A083-3030073E9159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D20CF3F1-DCA4-4371-A083-3030073E9159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D20CF3F1-DCA4-4371-A083-3030073E9159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D20CF3F1-DCA4-4371-A083-3030073E9159}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,10 +21,6 @@ namespace CarDealer.Core.Services
             mapper = _mapper;
         }
 
-        public CarService()
-        {
-        }
-
         //An example. You receive a carModel of type CarInputModel.
         //In carModel there is no Id so we convert it to a car with the mapper.
         //Mapper sets the Id to 0 and the color to null 
@@ -52,7 +48,6 @@ namespace CarDealer.Core.Services
             }
             catch (Exception)
             {
-
                 throw new ArgumentException("Invalid Id");
             }
             
@@ -62,63 +57,63 @@ namespace CarDealer.Core.Services
             try
             {
                 Car car = await data.GetByIdAsync<Car>(id);
+
                 var mapped = mapper.Map<Car, CarDetailsModel>(car);
+
                 return mapped;
             }
             catch (Exception)
             {
-
-                throw new ArgumentException("Invalid Id");
+                return null;
             }
-;
         }
 
-        public async Task<CarPreviewModel> GetCarPreviewById(int id)
+        public async Task<IEnumerable> GetAllCarsPreview()
         {
+            return data.All<Car>()
+                .ProjectTo<CarPreviewModel>(this.mapper.ConfigurationProvider)
+                .ToArray();
+        }
+        public async Task<IEnumerable> GetAllCarsPreviewSearchedByMakeOrModel(string search)
+        {
+            return data.All<Car>()
+                .Where(c => c.Make.ToLower().Contains(search.ToLower()) || c.Model.ToLower().Contains(search.ToLower()))
+                .ProjectTo<CarPreviewModel>(this.mapper.ConfigurationProvider)
+                .ToArray();
+        }
+
+        public async Task<bool> EditCar(CarDetailsModel carModel)
+        {
+            var car = await data.GetByIdAsync<Car>(carModel.Id);
+
+            if (car == null)
+            {
+                return false;
+            }
+
+            car.Make = carModel.Make;
+            car.Model = carModel.Model;
+            car.Year = carModel.Year;
+            car.EngineCapacity = carModel.EngineCapacity;
+            car.Color = carModel.Color;
+            car.Horsepower = carModel.Horsepower;
+
             try
             {
-                Car car = await data.GetByIdAsync<Car>(id);
-                var mapped = mapper.Map<Car, CarPreviewModel>(car);
-                return mapped;
+                await data.SaveChangesAsync();
             }
             catch (Exception)
             {
-                throw new ArgumentException("Invalid Id");
+                return false;
             }
-            
+
+            return true;
         }
 
-        public async Task<ICollection> GetAllCarsPreview()
+        public async Task DeleteById(int id)
         {
-            var cars = data.All<Car>().ToArray();
-            List<CarPreviewModel> result = new List<CarPreviewModel>();
-            foreach (var car in cars)
-            {
-                var mapped = mapper.Map<Car, CarPreviewModel>(car);
-                result.Add(mapped);
-            }
-            return result;
+            await data.DeleteAsync<Car>(id);
+            await data.SaveChangesAsync();
         }
-        public async Task<ICollection> GetAllCarsPreviewWhere<Car>(Expression<Func<Car, bool>> search)
-        {
-            /* var cars =await data.All<Car>(search).ToArray();
-             List<CarPreviewModel> result = new List<CarPreviewModel>();
-             foreach (var car in cars)
-             {
-                 var mapped = mapper.Map<Car, CarPreviewModel>(car);
-                 result.Add(mapped);
-             }
-
-             return result;*/
-            throw new NotImplementedException();
-
-
-        }
-        public Task EditById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-       
     }
 }

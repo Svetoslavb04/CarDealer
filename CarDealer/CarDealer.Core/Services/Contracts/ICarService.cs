@@ -11,14 +11,14 @@ namespace CarDealer.Core.Services.Contracts
 
         public Task RemoveCarById(int id);
 
-        public Task<CarPreviewModel> GetCarPreviewById(int id);
-
         public Task<CarDetailsModel> GetCarDetailsById(int id);
 
-        public Task<ICollection> GetAllCarsPreview();
+        public Task<IEnumerable> GetAllCarsPreview();
 
-        public Task<ICollection> GetAllCarsPreviewWhere<T>(Expression<Func<T, bool>> search);
+        public Task<IEnumerable> GetAllCarsPreviewSearchedByMakeOrModel(string search);
 
-        public Task EditById(int id);
+        public Task<bool> EditCar(CarDetailsModel carModel);
+
+        public Task DeleteById(int id);
     };
 }

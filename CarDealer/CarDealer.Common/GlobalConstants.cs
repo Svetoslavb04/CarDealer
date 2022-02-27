@@ -10,7 +10,7 @@
 
         public const int CarMaxYear = 2022;
 
-        public const string CarColorRegex = @"^[a-zA-Z]+$";
+        public const string CarColorRegex = @"^[a-z A-Z]+$";
 
         public const double CarEngineCapacityMinValue = 0.1;
 

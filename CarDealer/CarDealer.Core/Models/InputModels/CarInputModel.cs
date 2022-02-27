@@ -20,9 +20,10 @@ namespace CarDealer.Core.Models.InputModels
         [Range(GlobalConstants.CarMinYear, GlobalConstants.CarMaxYear)]
         public int Year { get; set; }
 
-        [RegularExpression(GlobalConstants.CarColorRegex)]
+        [RegularExpression(GlobalConstants.CarColorRegex, ErrorMessage = "Color should contain only letters")]
         public string? Color { get; set; }
 
+        [Display(Name = "Engine Capacity")]
         [Required]
         [Range(GlobalConstants.CarEngineCapacityMinValue, GlobalConstants.CarEngineCapacityMaxValue)]
         public double EngineCapacity { get; set; }

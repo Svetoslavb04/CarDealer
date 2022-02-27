@@ -2,14 +2,11 @@
 {
     using CarDealer.Common;
     using CarDealer.Core.Mapping;
-    using CarDealer.Core.Models.InputModels;
     using CarDealer.Core.Services;
     using CarDealer.Core.Services.Contracts;
     using CarDealer.Data;
-    using CarDealer.Data.Models;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
-    using System;
 
     public class StartUp
     {
