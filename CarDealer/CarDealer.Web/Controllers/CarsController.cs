@@ -14,25 +14,21 @@ namespace CarDealer.Web.Controllers
             this.carService = carService;
         }
 
-        // GET: CarsController
         public ActionResult Index()
         {
             return RedirectToAction("All");
         }
 
-        //GET: CarsController/All
         public async Task<ActionResult> All()
         {
             return View(await carService.GetAllCarsPreview());
         }
 
-        // GET: CarsController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: CarsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(CarInputModel carInputModel)
@@ -46,8 +42,7 @@ namespace CarDealer.Web.Controllers
 
             return View(carInputModel);
         }
-        
-        // GET: CarsController/Details/5
+
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -65,7 +60,6 @@ namespace CarDealer.Web.Controllers
             return View(car);
         }
 
-        // GET: CarsController/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,7 +77,6 @@ namespace CarDealer.Web.Controllers
             return View(car);
         }
 
-        // POST: CarsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(int id, CarDetailsModel car)
@@ -106,7 +99,6 @@ namespace CarDealer.Web.Controllers
             return View(car);
         }
 
-        // GET: CarsController/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,7 +116,6 @@ namespace CarDealer.Web.Controllers
             return View(car);
         }
 
-        // POST: CarsController/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ConfirmDeleting(int id)
