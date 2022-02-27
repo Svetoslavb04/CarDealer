@@ -17,6 +17,8 @@ namespace CarDealer.Core.Services.Contracts
 
         public Task<IEnumerable> GetAllCarsPreviewSearchedByMakeOrModel(string search);
 
+        public Task<IEnumerable> GetTopThreeMostPowerfulCars();
+
         public Task<bool> EditCar(CarDetailsModel carModel);
 
         public Task DeleteById(int id);

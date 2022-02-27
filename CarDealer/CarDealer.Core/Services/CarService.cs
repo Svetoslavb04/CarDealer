@@ -82,6 +82,15 @@ namespace CarDealer.Core.Services
                 .ToArray();
         }
 
+        public async Task<IEnumerable> GetTopThreeMostPowerfulCars()
+        {
+            return data.All<Car>()
+                .OrderByDescending(c => c.Horsepower)
+                .Take(3)
+                .ProjectTo<CarDetailsModel>(this.mapper.ConfigurationProvider)
+                .ToArray();
+        }
+
         public async Task<bool> EditCar(CarDetailsModel carModel)
         {
             var car = await data.GetByIdAsync<Car>(carModel.Id);

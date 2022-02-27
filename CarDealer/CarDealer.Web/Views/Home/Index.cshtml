@@ -1,8 +1,25 @@
-﻿@{
+﻿@model IEnumerable<CarDealer.Core.Models.OutputModels.CarDetailsModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <h1 class="display-4">Hello from M and S</h1>
+    <h2 class="display-2">Here are top three most powerful cars</h2>
+
+    <div class="row mt-5 justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Make) @Html.DisplayFor(modelItem => item.Model)</h5>
+                        <p class="card-text">Year: @Html.DisplayFor(modelItem => item.Year)</p>
+                        <p class="card-text">HorsePower: <strong>@Html.DisplayFor(modelItem => item.Horsepower)</strong></p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
