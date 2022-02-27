@@ -5,8 +5,12 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Hello from M and S</h1>
-    <h2 class="display-2">Here are top three most powerful cars</h2>
+    <h2 class="display-2">Top three most powerful cars</h2>
+    <div class="row justify-content-center">
+        <div class="col-9">
+            <hr class=""/>
+        </div>
+    </div>
 
     <div class="row mt-5 justify-content-center">
         @foreach (var item in Model)
@@ -16,10 +20,11 @@
                     <div class="card-body">
                         <h5 class="card-title">@Html.DisplayFor(modelItem => item.Make) @Html.DisplayFor(modelItem => item.Model)</h5>
                         <p class="card-text">Year: @Html.DisplayFor(modelItem => item.Year)</p>
-                        <p class="card-text">HorsePower: <strong>@Html.DisplayFor(modelItem => item.Horsepower)</strong></p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p class="card-text">Horsepower: <strong>@Html.DisplayFor(modelItem => item.Horsepower)</strong></p>
+                        <a asp-area="" asp-controller="Cars" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
                     </div>
                 </div>
             </div>
         }
+    </div>
     </div>
