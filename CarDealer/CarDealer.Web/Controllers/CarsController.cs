@@ -19,8 +19,14 @@ namespace CarDealer.Web.Controllers
             return RedirectToAction("All");
         }
 
-        public async Task<ActionResult> All()
+        [HttpGet]
+        public async Task<ActionResult> All(string search)
         {
+            if (!String.IsNullOrWhiteSpace(search))
+            {
+                return View(await carService.GetAllCarsPreviewSearchedByMakeOrModel(search));
+            }
+
             return View(await carService.GetAllCarsPreview());
         }
 

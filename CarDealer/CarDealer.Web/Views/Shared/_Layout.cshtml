@@ -10,9 +10,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 py-0">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Your Car Dealer</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Car Dealer</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,9 +29,20 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Cars" asp-action="Create">Sell Car</a>
                         </li>
                     </ul>
+                    <div class="navbar-text">
+                        <form class="row g-3" asp-controller="Cars" asp-action="All" method="get">
+                                <div class="col-auto">
+                                    <input class="form-control mr-sm-2" type="text" placeholder="Search Car" aria-label="Search" name="search">
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                </div>
+                            </form>
+                    </div>
                 </div>
             </div>
         </nav>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">
