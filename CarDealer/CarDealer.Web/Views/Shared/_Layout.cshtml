@@ -10,9 +10,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 py-0">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3 py-0">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Car Dealer</a>
+                <a class="navbar-brand text-primary" asp-area="" asp-controller="Home" asp-action="Index">Car Dealer</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,13 +20,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cars" asp-action="Index">Cars</a>
+                            <a class="nav-link text-secondary" asp-area="" asp-controller="Cars" asp-action="Index">All Cars</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cars" asp-action="Create">Sell Car</a>
+                            <a class="nav-link text-secondary" asp-area="" asp-controller="Cars" asp-action="Create">Sell Your Car</a>
                         </li>
                     </ul>
                     <div class="navbar-text">
@@ -35,7 +35,7 @@
                                     <input class="form-control mr-sm-2" type="text" placeholder="Search Car" aria-label="Search" name="search">
                                 </div>
                                 <div class="col-auto">
-                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                                 </div>
                             </form>
                     </div>
@@ -47,10 +47,10 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
+            <div style="height: 50px;"></div>
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
+    <footer class="border-top bg-dark footer text-muted">
         <div class="container">
             &copy; 2022 - @DateTime.Now.Year - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

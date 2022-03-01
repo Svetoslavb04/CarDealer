@@ -50,7 +50,7 @@ namespace CarDealer.Core.Services
             {
                 throw new ArgumentException("Invalid Id");
             }
-            
+
         }
         public async Task<CarDetailsModel> GetCarDetailsById(int id)
         {
@@ -76,10 +76,12 @@ namespace CarDealer.Core.Services
         }
         public async Task<IEnumerable> GetAllCarsPreviewSearchedByMakeOrModel(string search)
         {
+            var searchString = string.Join("", search.Split(" ", StringSplitOptions.RemoveEmptyEntries).ToArray());
+
             return data.All<Car>()
-                .Where(c => c.Make.ToLower().Contains(search.ToLower()) || c.Model.ToLower().Contains(search.ToLower()))
-                .ProjectTo<CarPreviewModel>(this.mapper.ConfigurationProvider)
-                .ToArray();
+            .Where(c => (c.Make.ToLower() + c.Model.ToLower()).Contains(searchString))
+            .ProjectTo<CarPreviewModel>(this.mapper.ConfigurationProvider)
+            .ToArray();
         }
 
         public async Task<IEnumerable> GetTopThreeMostPowerfulCars()

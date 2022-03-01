@@ -1,4 +1,9 @@
 ﻿@charset "UTF-8";
+.footer {
+  position: fixed !important;
+  line-height: 50px !important;
+}
+
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

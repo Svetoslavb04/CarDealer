@@ -1,6 +1,11 @@
 ﻿// Include any default variable overrides here (though functions won't be available)
 
-$primary: #e30000;
+$primary: #e30000; //Change primary app color
+
+.footer {
+    position: fixed !important;
+    line-height: 50px !important;
+}
 
 @import "../lib/bootstrap/dist/scss/bootstrap.scss";
 
