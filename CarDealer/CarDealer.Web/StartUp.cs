@@ -23,8 +23,8 @@ namespace CarDealer.Web
                 options
                 .UseSqlServer(DatabaseConfiguration.WindowsAuthConnectionString))
                 .AddAutoMapper(typeof(CarProfile).Assembly)
-                .AddScoped<ICarDealerRepository, CarDealerRepository>()
-                .AddScoped<ICarService, CarService>()
+                .AddTransient<ICarDealerRepository, CarDealerRepository>()
+                .AddTransient<ICarService, CarService>()
                 .AddControllersWithViews();
         }
 
