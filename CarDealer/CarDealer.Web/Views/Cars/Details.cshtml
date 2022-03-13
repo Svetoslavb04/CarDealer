@@ -48,6 +48,6 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    <a asp-action="Index">Back to List</a>
+    <a href= "../Edit/@Html.DisplayFor(model => model.Id)" type="button" class="btn btn-primary">Edit</a> |
+    <a asp-action="Index" type="button" class="btn btn-primary">Back To All Cars</a>
 </div>

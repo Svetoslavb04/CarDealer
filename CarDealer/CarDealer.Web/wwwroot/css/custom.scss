@@ -7,10 +7,14 @@ $primary: #e30000; //Change primary app color
     line-height: 50px !important;
 }
 
+
+
 @import "../lib/bootstrap/dist/scss/bootstrap.scss";
 
-// Then add additional custom code here
-<<<<<<< Updated upstream
-=======
+.nav-item :hover {
+    background-color: #F0FFFF;
+}
 
->>>>>>> Stashed changes
+.grey {
+    background-color: #a0a3a1;
+}

@@ -33,5 +33,10 @@ namespace CarDealer.Core.Models.OutputModels
         [Required]
         [Range(GlobalConstants.CarMinHorsepower, GlobalConstants.CarMaxHorsepower)]
         public int Horsepower { get; set; }
+
+        public override string ToString()
+        {
+            return $"--> Make: {Make}\n    Model: {Model}\n    Year: {Year}\n    Color: {Color}\n    Engine Capacity: {EngineCapacity}\n    Horsepower: {Horsepower}";
+        }
     }
 }

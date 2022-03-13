@@ -21,7 +21,7 @@ namespace CarDealer.Web
         {
             services.AddDbContext<CarDealerContext>(options =>
                 options
-                .UseSqlServer(DatabaseConfiguration.WindowsAuthConnectionString))
+                .UseSqlServer(DatabaseConfiguration.DefaultConnectionString))
                 .AddAutoMapper(typeof(CarProfile).Assembly)
                 .AddTransient<ICarDealerRepository, CarDealerRepository>()
                 .AddTransient<ICarService, CarService>()

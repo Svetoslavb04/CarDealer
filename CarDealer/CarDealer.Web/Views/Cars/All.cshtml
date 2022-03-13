@@ -9,39 +9,26 @@
 <p>
     <a asp-action="Create" type="button" class="btn btn-primary">Add new car</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Make)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Model)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Year)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody class="align-middle">
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Make)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Year)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" type="button" class="btn btn-lg">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id" type="button" class="btn btn-outline-light">Details</a> | 
-                <a asp-action="Delete" asp-route-id="@item.Id" type="button" class="btn btn-light">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+
+<div class="row mt-5 justify-content-lg-start">   
+    @foreach (var item in Model)
+        {
+            <div class="col-sm-3">
+                <div class="card text-white bg-secondary mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.Make) @Html.DisplayFor(modelItem => item.Model)</h5>
+                        <p class="card-text text-center">Year: @Html.DisplayFor(modelItem => item.Year)</p>
+                        @*<p class="card-text">Horsepower: <strong>@Html.DisplayFor(modelItem => item.Horsepower)</strong></p>*@
+                        <div class="text-center">
+                         <a asp-action="Edit" asp-route-id="@item.Id" type="button" class="btn btn-outline-dark">Edit</a> |
+                         <a asp-action="Details" asp-route-id="@item.Id" type="button" class="btn btn-outline-light">Details</a> | 
+                         <a asp-action="Delete" asp-route-id="@item.Id" type="button" class="btn btn-outline-danger">Delete</a> 
+                     </div>  
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    
