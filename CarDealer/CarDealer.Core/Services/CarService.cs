@@ -27,6 +27,8 @@ namespace CarDealer.Core.Services
         //When you add the car in the db its Id will be automatically set 
         public async Task AddCar(CarInputModel carModel)
         {
+            carModel.EngineCapacity = Math.Round(carModel.EngineCapacity,1);
+
             var car = mapper.Map<CarInputModel, Car>(carModel);
 
             try
@@ -105,7 +107,7 @@ namespace CarDealer.Core.Services
             car.Make = carModel.Make;
             car.Model = carModel.Model;
             car.Year = carModel.Year;
-            car.EngineCapacity = carModel.EngineCapacity;
+            car.EngineCapacity = Math.Round(carModel.EngineCapacity, 1);
             car.Color = carModel.Color;
             car.Horsepower = carModel.Horsepower;
 
