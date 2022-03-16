@@ -237,6 +237,7 @@
             else
             {
                 Console.WriteLine("Invalid id!");
+                return;
             }
 
             CarDetailsModel carModel = new CarDetailsModel()
