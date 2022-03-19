@@ -20,6 +20,7 @@ and it is used by the Car Service.
 - .Net 6
 - ASP.NET Core
 - Entity Framework Core
+- Auto Mapper
 - SQL Server
 - Bootstrap
 - JQuery
