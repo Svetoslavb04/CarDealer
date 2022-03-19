@@ -1,7 +1,30 @@
-# Car Dealer 
+# Car Dealer
 
-Приложението Car Dealer представлява MVC проект, който съхранява коли и информация за тях. Информацията се пази в база данни. Приложението има два интерфейса – Конзолен и Уеб. И двата позволяват добавяне на нов екземпляр в базата данни, редактиране на информацията и изтриване на екземпляр. Също така, има възможност за търсене на определен запис по име на марката или модела. Друга опция на приложението е визуализиране на колите.
-Приложението е създадено по модела Database – First, като това означава, че първо е направена базата данни, а след това класовете и връзките към нея. За улеснение на входа и изхода на данните, са създадени класове за визуализация и един клас за вкарване на информация. Класовете за визуализация(Output Models) са  съответно за извеждане на съкратена информация и за по-подробна такава. Класът за въвеждане на информация (Input Model) позволява вкарване на информация, като зададените атрибути на всяко свойство на класа помагат за валидацията на въвежданите данни в Уеб частта. За да се осъществят CRUD операциите с базата данни, съществуват клас Repository, където са методите за достъпа до базата и клас Service, който съдържа методите за работа в приложениeто.
+Car Dealer is basic MVC app for listing Cars
 
+## Description
 
+The Car Dealer app is an MVC project that stores cars and information about them.
+The cars are stored in a database. The application has two user interfaces - Console and Web. Both allow you to add a new entity to the database, edit it and delete it. A search functionality is also available for a specific record by brand or model name.
+
+## Getting Started
+
+### Approaches
+
+The database was created using the Code First approach provided by the framework. We created the models then the database was generated.
+The next thing we have done was the car service. In the service is stored all the bussines. To reduce the data transfer we have created input and output models for the car. We implemented a repository class to level up the abstraction. This means in the future we can use another data source. Repository works with the data source
+and it is used by the Car Service. 
+
+### Dependencies
+
+- .Net 6
+- ASP.NET Core
+- Entity Framework Core
+- SQL Server
+- Bootstrap
+- JQuery
+
+## Authors
+
+Martin Yovkov and Svetoslav Borislavov
 
