@@ -22,7 +22,7 @@
         {
             var services = new ServiceCollection()
                 .AddDbContext<CarDealerContext>(options =>
-                options.UseSqlServer(DatabaseConfiguration.WindowsAuthConnectionString))
+                options.UseSqlServer(DatabaseConfiguration.DefaultConnectionString))
                 .AddAutoMapper(typeof(CarProfile).Assembly)
                 .AddTransient<ICarDealerRepository, CarDealerRepository>()
                 .AddTransient<ICarService, CarService>()
